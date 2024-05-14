@@ -4,18 +4,42 @@
     <meta charset="UTF-8" />
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta
-			http-equiv="Content-Security-Policy"
-			content="default-src 'none'; script-src file: 'sha256-RtE3AqQ1tBhtcwykhJsEKY7jjCqiGy5yH1mRDwu6gEE='; style-src 'unsafe-inline' file:; font-src file:"
-		/>
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; script-src 'self'; style-src 'unsafe-inline' file:; font-src file:"
+    />
     <title>Hello World!</title>
+    <style>
+      body{
+        margin: 0;
+      }
+      /* Set editor dimensions */
+      #editor {
+        height: 100svh;
+        width: 50%;
+        border: 1px solid gray;
+        font-size: 1.1rem;
+      }
+
+      /* Stretch editor to fit inside its containing div */
+      .cm-editor {
+        height: 100%;
+        width: 100%;
+      }
+      .container{
+        display: flex;
+        /* justify-content: center; */
+      }
+      #result{
+        padding: 0px 1rem;
+      }
+    </style>
   </head>
   <body>
-    <!-- <h1>Hello World!</h1>
-    <p>Current platform: <span id="platform"></span></p>
-    We are using Node.js <span id="node-version"></span>, Chromium
-    <span id="chrome-version"></span>, and Electron
-    <span id="electron-version"></span>. -->
-    <div id="container"></div>
+    <div class="container">
+      <div id="editor"></div>
+      <div id="result"></div>
+    </div>
+    <button id="get-code">Get code</button>
     <script src="./assets/js/cm6.bundle.min.js"></script>
     <script src="renderer.js"></script>
   </body>
